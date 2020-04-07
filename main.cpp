@@ -123,8 +123,8 @@ int main(int argc, char **argv)
     std::string fileName = argv[3];
 
     // initialize spins
-    //std::array<int, N> spinState(Init());
-    std::array<int, N> spinState(InitOrder(1));
+    std::array<int, N> spinState(Init());
+    //std::array<int, N> spinState(InitOrder(1));
 
     // save data
     std::ofstream file;
