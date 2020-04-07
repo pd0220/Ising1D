@@ -122,7 +122,7 @@ int main(int argc, char **argv)
     {
         int index{RandUniInt(0, N)};
         ToFlipOrNotToFlip(index, spinState, betaJ);
-        WriteToFile(file, spinState);
+        //WriteToFile(file, spinState);
         double m = Magnetizaion(spinState);
         file << m << " " << m * m << "\n";
         i++;
