@@ -123,8 +123,8 @@ int main(int argc, char **argv)
     std::string fileName = argv[3];
 
     // initialize spins
-    std::array<int, N> spinState(Init());
-    //std::array<int, N> spinState(InitOrder(1));
+    //std::array<int, N> spinState(Init());
+    std::array<int, N> spinState(InitOrder(1));
 
     // save data
     std::ofstream file;
@@ -134,7 +134,7 @@ int main(int argc, char **argv)
     while (i < N * t)
     {
         double m = Magnetizaion(spinState);
-        file << m << " " << m * m << "\n";
+        file << m << "\n";
         int index{RandUniInt(0, N)};
         ToFlipOrNotToFlip(index, spinState, betaJ);
         //WriteToFile(file, spinState);
