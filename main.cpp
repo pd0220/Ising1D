@@ -58,6 +58,13 @@ auto Init = [&]() {
     return vec;
 };
 
+// initialize spins (ordered: +/- 1)
+auto InitOrder = [&](int const &upOrDown) {
+    std::array<int, N> vec;
+    vec.fill(upOrDown);
+    return vec;
+};
+
 // -------------------------------------------------------------------------------------------
 
 // "to flip, or not to flip?"
@@ -111,7 +118,8 @@ int main(int argc, char **argv)
     int t{std::stoi(argv[2])};
 
     // initialize spins
-    std::array<int, N> spinState(Init());
+    //std::array<int, N> spinState(Init());
+    std::array<int, N> spinState(InitOrder(1));
 
     // save data
     std::ofstream file;
