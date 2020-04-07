@@ -8,6 +8,7 @@
 #include <random>
 #include <array>
 #include <algorithm>
+#include <string>
 
 // size of system
 const int N = 50;
@@ -102,10 +103,11 @@ auto Magnetizaion = [&](auto const &spinState) {
 // main function
 // argv[1] --> beta * J
 // argv[2] --> t
+// argv[3] --> file name
 int main(int argc, char **argv)
 {
     // check argument list
-    if (argc < 3)
+    if (argc < 4)
     {
         std::cout << "ERROR\nNot enough parameter." << std::endl;
         std::exit(-1);
@@ -117,13 +119,16 @@ int main(int argc, char **argv)
     // declare integration time
     int t{std::stoi(argv[2])};
 
+    // declare file name
+    std::string fileName = argv[3];
+
     // initialize spins
     //std::array<int, N> spinState(Init());
     std::array<int, N> spinState(InitOrder(1));
 
     // save data
     std::ofstream file;
-    file.open("IsingSim.txt");
+    file.open(fileName);
     // simulation
     int i{0};
     while (i < N * t)
