@@ -128,11 +128,11 @@ int main(int argc, char **argv)
     int i{0};
     while (i < N * t)
     {
+        double m = Magnetizaion(spinState);
+        file << m << " " << m * m << "\n";
         int index{RandUniInt(0, N)};
         ToFlipOrNotToFlip(index, spinState, betaJ);
         //WriteToFile(file, spinState);
-        double m = Magnetizaion(spinState);
-        file << m << " " << m * m << "\n";
         i++;
     }
     file.close();
